@@ -1,5 +1,6 @@
 package io.klibs.app.indexing
 
+import io.klibs.app.configuration.properties.PackageDescriptionProperties
 import io.klibs.app.indexing.discoverer.PackageDiscoverer
 import io.klibs.core.pckg.entity.IndexingRequestEntity
 import io.klibs.core.pckg.repository.IndexingRequestRepository
@@ -61,6 +62,7 @@ class PackageIndexingServiceTestOld {
             packageService,
             packageRepository,
             mavenArtifactService,
+            PackageDescriptionProperties(),
             selfProvider
         )
     }
