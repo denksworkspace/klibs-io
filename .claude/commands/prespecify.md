@@ -4,7 +4,7 @@ description: Interactively interview the developer to produce a compact, human-o
 
 # /prespecify
 
-Run an **interactive interview** (in the style of `/grill-me`) that helps the developer author a *prespec* — a cheap, human-owned alignment artifact reviewed **before** a spec exists. The prespec aligns on the **problem and intent**; it may carry solution **pointers** but never solution **decisions** (those belong in the spec's §8). The developer supplies the thinking — you own consistency and boundary-enforcement, not the content.
+Run an **interactive interview** (in the style of `/grill-me` (https://github.com/mattpocock/skills/blob/733d312884b3878a9a9cff693c5886943753a741/skills/productivity/grill-me/SKILL.md)) that helps the developer author a *prespec* — a cheap, human-owned alignment artifact reviewed **before** a spec exists. The prespec aligns on the **problem and intent**; it may carry solution **pointers** but never solution **decisions** (those belong in the spec's §8). The developer supplies the thinking — you own consistency and boundary-enforcement, not the content.
 
 ## Input
 $ARGUMENTS
