@@ -4,7 +4,7 @@ description: Generate a klibs.io feature spec from an approved prespec — carry
 
 # /spec-from-prespec
 
-Generate a feature spec from an **approved prespec**. The prespec captured the *problem and intent*; this command turns it into a reviewable *contract*. The prespec's success criteria are durable — carry each `PRESPEC-SC-NN` forward by ID so the spec reviewer can verify every one is covered.
+Generate a feature spec from an **approved prespec**. The prespec captured the *problem and intent*; this command turns prespec into a reviewable *contract*. The prespec's success criteria are durable — carry each `PRESPEC-SC-NN` forward by ID so the spec reviewer can verify every one is covered.
 
 The spec must follow the template at `.claude/templates/spec.md` and respect the rules in `CLAUDE.md` (module-by-feature boundaries, minimal diff, no unsolicited refactors).
 
