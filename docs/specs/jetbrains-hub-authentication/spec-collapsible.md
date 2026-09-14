@@ -496,7 +496,7 @@ Existing anonymous browsing and Basic-auth operator/admin flows must keep workin
 
   <br>
 
-  - JetBrains Hub OAuth authorization.
+  - Browser authorization through the JetBrains Hub authorization endpoint.
   - Server-to-server token exchange with PKCE.
   - JetBrains Hub current-user/user-info endpoint.
   - Optional expired-session cleanup job. If implemented, use the project's existing ShedLock mechanism so only one
