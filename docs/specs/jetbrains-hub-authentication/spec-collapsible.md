@@ -59,7 +59,7 @@ Review-ready authentication spec grouped into collapsible sections for focused d
     `code_verifier` later.
   - **PKCE:** OAuth protection where the backend sends `code_challenge` before login and later proves the same login attempt
     using `code_verifier`.
-  - **OAuth state (state):** value sent to Hub during login and returned on callback to connect the callback to the login
+  - **OAuth state:** value sent to Hub during login and returned on callback to connect the callback to the login
     attempt. `OAuth state` and `state` mean the same value in this spec.
   - **Token exchange:** backend-to-Hub call that exchanges OAuth code plus PKCE proof for an access token.
 
@@ -699,14 +699,14 @@ Existing anonymous browsing and Basic-auth operator/admin flows must keep workin
   <br>
 
   - **Purpose:** keep one browser login attempt available between sign-in start and Hub callback.
-  - **Contains:** signed OAuth state (state) and PKCE `code_verifier`.
+  - **Contains:** signed OAuth state and PKCE `code_verifier`.
   - **Does not contain:** Hub access token, raw Hub user id, or local session token.
   - **Lifecycle:** created when Hub sign-in starts; cleared after callback processing finishes on success or failure.
 
   </details>
 
 - <details>
-  <summary><strong>9.4 OAuth state (state) — signed callback data</strong></summary>
+  <summary><strong>9.4 OAuth state — signed callback data</strong></summary>
 
   <br>
 
@@ -834,7 +834,7 @@ Notes:
 </details>
 
 <details>
-<summary><strong>12. Assumptions</strong></summary>
+<summary><strong>12. Assumptions (required reading for reviewers)</strong></summary>
 
 <br>
 
@@ -882,7 +882,7 @@ Notes:
   - **Session cookie concern:** a cross-site request may arrive without the session cookie because of SameSite rules, but the
     response could still clear the browser cookie. That would allow forced logout without deleting the DB session.
   - **Login cookie case:** Hub callback validation currently clears the login cookie on missing, mismatched, tampered, or
-    expired OAuth state (state).
+    expired OAuth state.
   - **Affected callback failures:** state mismatch, tampered state, expired state, missing/invalid OAuth code, and Hub
     token/user lookup failure.
   - **Login cookie concern:** an attacker can send the browser to a fake callback URL. The callback is rejected, but clearing
@@ -901,7 +901,7 @@ Notes:
   - **Question:** confirm the timeout and TTL values before implementation.
   - **Proposed Hub timeouts:** connect <= 2 seconds, each Hub HTTP call <= 5 seconds, and all Hub calls made during one
     callback <= 10 seconds in total. These proposed defaults remain documented in section 5.4.
-  - **TTL values to confirm:** OAuth state (state) and login cookie TTL, plus the local session and session cookie TTL.
+  - **TTL values to confirm:** OAuth state and login cookie TTL, plus the local session and session cookie TTL.
   - **Configuration:** these values may be configurable so production can adjust them without changing code.
   - **If changed:** update section 5.4, configuration defaults, and timeout/expiry tests together.
 
@@ -931,7 +931,7 @@ Notes:
   - **Options:** keep trusted-Origin validation as the complete policy; add a CSRF token while keeping Origin validation; or
     make the CSRF token the primary check and define when Origin is still required.
   - **Compatibility:** the decision must not add CSRF checks to public requests without a klibs session cookie, existing
-    Basic auth, or the Hub callback navigation protected by OAuth state (state), login cookie, and PKCE.
+    Basic auth, or the Hub callback navigation protected by OAuth state, login cookie, and PKCE.
   - **If changed:** update sections 4.4, 5.3, and 8.7, the authentication UML, frontend request contract, and CSRF tests.
 
   </details>
